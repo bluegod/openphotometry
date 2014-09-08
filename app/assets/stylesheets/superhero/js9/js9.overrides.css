@@ -1,0 +1,26 @@
+div.JS9MenubarContainer {
+    background: rgb(78,93,108);
+
+}
+
+.JS9Button {
+    background: rgb(78,93,108);
+}
+
+
+.context-menu-item {
+    background: rgb(78,93,108);
+    background: rgba(78,93,108, 0.7);
+}
+
+.context-menu-list {
+    border: none;
+}
+
+.context-menu-item.hover {
+    background: rgb(78,93,108);
+}
+
+canvas.JS9Image, canvas.JS9Panner, canvas.JS9Magnifier, canvas.JS9Info {
+    background: rgb(78,93,108);
+}

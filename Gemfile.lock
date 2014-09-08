@@ -1,3 +1,19 @@
+GIT
+  remote: git://github.com/bluegod/twitter-bootswatch-rails-fontawesome.git
+  revision: 1ea15b11b6cac8846d3dfaec30bbe78ac6488e32
+  specs:
+    twitter-bootswatch-rails-fontawesome (4.2.0.0)
+      less-rails (>= 2.3)
+      railties (>= 3.1)
+      twitter-bootswatch-rails
+
+GIT
+  remote: https://github.com/seomoz/qless.git
+  revision: 515cdc862a820248005efadc3e4f8b644562a441
+  specs:
+    qless (0.10.0.pre)
+      redis (>= 2.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -28,6 +44,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    bcrypt (3.1.7)
     builder (3.2.2)
     capistrano (3.2.1)
       i18n
@@ -39,6 +56,11 @@ GEM
     capistrano-rails (1.1.2)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -47,30 +69,77 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     colorize (0.7.3)
+    commonjs (0.2.7)
     daemons (1.1.9)
+    devise (3.3.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.2.1)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
+    hashie (3.3.1)
     hike (1.2.3)
     i18n (0.6.11)
     jbuilder (2.1.3)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
-    jquery-rails (3.1.1)
+    jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.0)
+      railties (>= 3.2.16)
     json (1.8.1)
+    jwt (1.0.0)
+    less (2.5.1)
+      commonjs (~> 0.2.7)
+    less-rails (2.5.0)
+      actionpack (>= 3.1)
+      less (~> 2.5.0)
+    libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     minitest (5.4.1)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
+    multipart-post (2.0.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
+    oauth (0.4.7)
+    oauth2 (1.0.0)
+      faraday (>= 0.8, < 0.10)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (~> 1.2)
+    omniauth (1.2.2)
+      hashie (>= 1.2, < 4)
+      rack (~> 1.0)
+    omniauth-facebook (2.0.0)
+      omniauth-oauth2 (~> 1.2)
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-oauth2 (1.2.0)
+      faraday (>= 0.8, < 0.10)
+      multi_json (~> 1.3)
+      oauth2 (~> 1.0)
+      omniauth (~> 1.2)
+    omniauth-twitter (1.0.1)
+      multi_json (~> 1.3)
+      omniauth-oauth (~> 1.0)
+    orm_adapter (0.5.0)
     polyglot (0.3.5)
     rack (1.5.2)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.1.5)
@@ -91,6 +160,8 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    redis (3.1.0)
+    ref (1.0.5)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -100,6 +171,13 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    simple_form (3.0.2)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
+    sinatra (1.3.6)
+      rack (~> 1.4)
+      rack-protection (~> 1.3)
+      tilt (~> 1.3, >= 1.3.3)
     spring (1.1.3)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -115,6 +193,9 @@ GEM
       colorize
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    therubyracer (0.12.1)
+      libv8 (~> 3.16.14.0)
+      ref
     thin (1.6.2)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -127,25 +208,51 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.3.0)
       coffee-rails
+    twitter-bootswatch-rails (3.2.0.0)
+      execjs (>= 1.4.0)
+      less-rails (>= 2.3)
+      railties (>= 3.1)
+    twitter-bootswatch-rails-helpers (3.2.0.0)
+      twitter-bootswatch-rails (~> 3.2.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    warden (1.2.3)
+      rack (>= 1.0)
+    will_paginate (3.0.7)
+    will_paginate-bootstrap (1.0.1)
+      will_paginate (>= 3.0.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   capistrano-rails
+  carrierwave
   coffee-rails (~> 4.0.0)
+  devise
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-ui-rails
+  less-rails
+  omniauth
+  omniauth-facebook
+  omniauth-twitter
+  qless!
   rails (= 4.1.5)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
+  simple_form
+  sinatra
   spring
   sqlite3
+  therubyracer
   thin
   turbolinks
+  twitter-bootswatch-rails (~> 3.2.0)
+  twitter-bootswatch-rails-fontawesome!
+  twitter-bootswatch-rails-helpers
   uglifier (>= 1.3.0)
+  will_paginate-bootstrap

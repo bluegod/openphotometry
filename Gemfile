@@ -38,3 +38,30 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'less-rails'
+
+gem 'therubyracer'
+
+# twitter bootstrap css & javascript toolkit
+gem 'twitter-bootswatch-rails', '~> 3.2.0'
+
+# twitter bootstrap helpers gem, e.g., alerts etc...
+gem 'twitter-bootswatch-rails-helpers'
+
+gem 'twitter-bootswatch-rails-fontawesome', :git => 'git://github.com/bluegod/twitter-bootswatch-rails-fontawesome.git'
+
+gem 'carrierwave'
+
+gem 'simple_form'
+
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+
+gem 'sinatra'
+gem 'qless', :git =>  'https://github.com/seomoz/qless.git'
+
+gem 'jquery-ui-rails'
+
+gem 'will_paginate-bootstrap'
