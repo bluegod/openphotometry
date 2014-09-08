@@ -66,7 +66,7 @@
 }
 .well.console-photo{
     margin-top:10px;
-    max-height:400px;
+    max-height:350px;
     overflow-y:scroll;
 }
 
@@ -78,4 +78,8 @@
 div.popover.fade.left.in {
    left:10px !important;
    max-width:none;
+}
+
+.sample-link a {
+    color:#FFF;
 }

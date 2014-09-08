@@ -73,7 +73,7 @@
 <span class="btn btn-info btn-sm btn-file">
     <i class="glyphicon glyphicon-plus"></i>
     <span>Add data images</span>
-    <input type="file" name="data[]" multiple="true">
+    <input id="dataImages" type="file" name="data[]" multiple="true">
 </span>
             </div>
 
@@ -116,6 +116,9 @@
             </div>
 
     </div>
+    <br>
+    <span class="label label-success sample-link"><a href="http://jameslopez.net/openphoto/sample.zip">Download test sample</a></span>
+
      <%= hidden_field_tag 'stars_location', '' %>
     <div class="well console-photo">
     <small id="console">
@@ -130,6 +133,7 @@
                       </div>
             </div>
 <% end %></div>
+
 </div>
 </div>
   </div>
