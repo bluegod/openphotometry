@@ -1,0 +1,81 @@
+/* Superhero
+ * Bootswatch
+ *= require_self
+ *= require superhero/loader
+ *= require superhero/bootswatch
+ *= require superhero/font-awesome
+ *= require superhero/js9/js9support
+ *= require superhero/js9/js9
+ *= require superhero/js9/js9.overrides
+ *= require jquery.datetimepicker
+*/
+.stars-image {
+    background-image: url("stars.png");
+    background-repeat: no-repeat;
+}
+
+.opacity-7 {
+    opacity: 0.7;
+    filter: alpha(opacity=70); /* For IE8 and earlier */
+}
+
+.main-config {
+    margin-top:45px;
+}
+
+.main-config-text {
+
+}
+
+
+.form-control.input-sm.input-transparent {
+    background: rgb(255,255,255);
+    background: rgba(255,255,255, .5);
+    color: #FFF;
+}
+.well.transparent-bg , .panel.transparent-bg {
+    background: rgb(78,93,108);
+    background: rgba(78,93,108, .5);
+
+}
+
+.panel-info.transparent-bg > .panel-heading{
+    background: rgb(91,192,222);
+    background: rgba(91,192,222, .7);
+
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.well.console-photo{
+    margin-top:10px;
+    max-height:400px;
+    overflow-y:scroll;
+}
+
+.menu-pop:hover {
+    cursor: pointer;
+    display: inline-block;
+}
+
+div.popover.fade.left.in {
+   left:10px !important;
+   max-width:none;
+}

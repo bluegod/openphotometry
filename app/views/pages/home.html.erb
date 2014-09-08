@@ -1,0 +1,138 @@
+<div class= "stars-image" >
+<p style="margin-top:10px;"></p>
+<div class="panel panel-info transparent-bg style="margin-top:10px;">
+  <div class="panel-heading">
+    <h3 class="panel-title text-center"><i class="fa fa-rss "></i>  Live photometry updates</h3>
+  </div>
+  <div class="panel-body main-config-text">
+
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Name</th>
+      <th>Job start</th>
+      <th>Job end</th>
+      <th>Number of files</th>
+      <th>Status</th>
+      <th>Visibility</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @jobs.each do |job| %>
+    <tr>
+      <td><%= 'Anonymous' %></td>
+      <td><%= job.data['name'] %></td>
+      <td><%= to_date(job.raw_queue_history[0]['when']) unless job.raw_queue_history[0].blank? %></td>
+      <td><%= to_date(job.raw_queue_history[2]['when']) unless job.raw_queue_history[2].blank? %></td>
+      <td><%= job.data['file_count'] %></td>
+      <td><%= job.state %></td>
+      <td><% if job.data['visibility']=='public' %>
+       <span class="label label-success">public</span>
+       <% else %>
+       <span class="label label-primary">private</span>
+       <% end %>
+       </td>
+        <% if job.state == 'failed' %>
+          <td><em class="fa fa-exclamation-circle menu-pop" rel="popover2" title="Error"  data-placement="left" data-img="Job failed: <%= job.failure['message'] %>" data-toggle="popover"></em></td>
+        <% elsif job.state == 'complete' %>
+          <td><em class="fa fa-line-chart menu-pop" rel="popover" title="Plot"  data-placement="left" data-img="assets/<%= job.data['token']%>/plot.png" data-toggle="popover"></em></td>
+        <% else %>
+          <td><i class="fa fa-circle-o-notch fa-spin"></i></td>
+        <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+  <% will_paginate @jobs, renderer: BootstrapPagination::Rails  %>
+
+</div>
+</div>
+
+<div class="panel panel-info transparent-bg style="margin-top:30px;">
+  <div class="panel-heading ">
+    <h3 class="panel-title text-center "><i class="fa fa-adjust "></i>  Quick photometry analysis</h3>
+  </div>
+  <div class="panel-body main-config-text">
+
+<%= form_tag('/pages/photo',:multipart => true, :remote=>false, :onSubmit => 'return getJs9Parameters();', :html => { :multipart => true }) do |f| %>
+   <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="row">
+            <div class="form-group col-lg-4">
+<span class="btn btn-info btn-sm btn-file">
+    <i class="glyphicon glyphicon-plus"></i>
+    <span>Add darks</span>
+    <input type="file" name="darks[]" multiple="true">
+</span>
+<span class="btn btn-info btn-file btn-sm">
+    <i class="glyphicon glyphicon-plus"></i>
+    <span>Add master flat</span>
+    <input type="file" name="flat[]" multiple="true">
+</span>
+<span class="btn btn-info btn-sm btn-file">
+    <i class="glyphicon glyphicon-plus"></i>
+    <span>Add data images</span>
+    <input type="file" name="data[]" multiple="true">
+</span>
+            </div>
+
+        </div>
+    <div class="row">
+                <div class="form-group col-lg-4 ">
+    <div style="margin-top:10px;">
+    <p>
+            <%= text_field_tag 'apertureRadius', nil, {:class=>"form-control input-sm input-transparent", :placeholder=>"Aperture Radius (4.5 default)"}%>
+    </p>
+    <div>
+          <div class="form-group">
+                <div class='input-group date'>
+                <%= text_field_tag 'datetimepicker1', nil, {:class=>"form-control input-sm input-transparent", :placeholder=>"Transit ingress"}%>
+                    <span class="input-group-addon btn-sm btn btn-default" id="calendar-but1"><span  class="fa fa-calendar">
+                          </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+            <div>
+                  <div class="form-group">
+                        <div class='input-group date'>
+                            <%= text_field_tag 'datetimepicker2', nil, {:class=>"form-control input-sm input-transparent", :placeholder=>"Transit egress"}%>
+                            <span class="input-group-addon btn-sm btn btn-default" id="calendar-but2"><span  class="fa fa-calendar">
+                                  </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+    <p>
+            <%= text_field_tag 'targetName', nil, {:class=>"form-control input-sm input-transparent", :placeholder=>"Target name"}%>
+    </p>
+     <div class="input-group">
+            <%= text_field_tag 'inputSmall', nil, {:class=>"form-control input-sm input-transparent", :placeholder=>"Analysis name"}%>
+            <span class="input-group-btn">
+                 <%= submit_tag 'Submit', :class=> 'btn btn-default btn-sm' %>
+            </span>
+            </div>
+
+    </div>
+     <%= hidden_field_tag 'stars_location', '' %>
+    <div class="well console-photo">
+    <small id="console">
+        <p class="text-info">Please upload your darks, master flat and data files.</p>
+    </small>
+        <i class="fa fa-terminal"></i>
+    </div>
+                </div>
+                        <div class="form-group col-lg-6" style="margin-left:50px;margin-top:-44px;">
+                            <div class="JS9Menubar"></div>
+                            <div class="JS9"></div>
+                      </div>
+            </div>
+<% end %></div>
+</div>
+</div>
+  </div>
+<p></p>
+<p></p>
+</div>
