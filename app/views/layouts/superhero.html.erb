@@ -31,9 +31,9 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#"><i class="fa fa-area-chart fa-lg"></i> Home</a></li>
-            <li><a href="#about"><i class="fa fa-question-circle fa-lg"></i> About</a></li>
-            <li><a href="#help"><i class="fa fa-life-ring fa-lg"></i> Help</a></li>
+            <li class="<%= 'active' if current_page?(root_path) %>"> <%= link_to '<i class="fa fa-area-chart fa-lg"></i> Home'.html_safe, root_path %></li>
+            <li class="<%= 'active' if current_page?(about_path) %>"> <%= link_to '<i class="fa fa-question-circle fa-lg"></i> About'.html_safe, about_path %></li>
+            <li class="<%= 'active' if current_page?(pages_help_path) %>"> <%= link_to '<i class="fa fa-life-ring fa-lg"></i> Help'.html_safe, '#' %></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-sliders fa-lg"></i>  Options <b class="caret"></b></a>
               <ul class="dropdown-menu">

@@ -22,6 +22,14 @@ class PagesController < ApplicationController
     @jobs = @jobs.paginate(:page => params['page'], :per_page => 15)
   end
 
+  def about
+
+  end
+
+  def help
+
+  end
+
   def js9prefs
     render :file   => File.join(Rails.root, 'public', 'js9Prefs.json ')
   end
