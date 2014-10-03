@@ -47,7 +47,7 @@ gem 'therubyracer'
 gem 'twitter-bootswatch-rails', '~> 3.2.0'
 
 # twitter bootstrap helpers gem, e.g., alerts etc...
-gem 'twitter-bootswatch-rails-helpers'
+gem 'twitter-bootswatch-rails-helpers', :git =>  'git://github.com/bluegod/twitter-bootswatch-rails-helpers'
 
 gem 'twitter-bootswatch-rails-fontawesome', :git => 'git://github.com/bluegod/twitter-bootswatch-rails-fontawesome.git'
 
